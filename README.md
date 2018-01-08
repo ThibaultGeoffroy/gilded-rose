@@ -1,3 +1,8 @@
 # gilded-rose
-The best group ever
-test
+-----------------^Contributors^-----------------
+Thibault Geoffroy
+Paul Viard
+Adrien Leyronas
+Arnaud Labyre
+Alexis Danjon
+Hugo Leprunier
