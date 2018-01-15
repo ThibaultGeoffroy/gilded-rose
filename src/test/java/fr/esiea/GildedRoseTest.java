@@ -33,10 +33,10 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void agedBrieAfter50DaysPassed(){
+    public void agedBrieAfter51DaysPassed(){
         Item[] items = new Item[] {new Item("Aged Brie", 1, 0)};
         GildedRose app = new GildedRose(items);
-        for(int i=0; i<50; i++)
+        for(int i=0; i<51; i++)
             app.updateQuality();
         assertEquals(50 , app.items[0].quality);
     }
