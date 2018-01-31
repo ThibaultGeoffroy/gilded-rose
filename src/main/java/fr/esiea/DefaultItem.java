@@ -11,10 +11,15 @@ public class DefaultItem extends Item{
 
     }
 
+
     public Item update(Item item){
         if(item.sellIn > 0){
-            if( item.quality > 0)
+            if( item.quality > 0){
                 item.quality--;
+                if (item.conjured == true)
+                    item.quality--;
+            }
+
             item.sellIn--;
         }
         else{
