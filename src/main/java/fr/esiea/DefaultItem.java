@@ -8,26 +8,21 @@ public class DefaultItem extends Item{
         super(name, SellIn, quality);
         if(this.quality > MAXQUALITY)
             this.quality = MAXQUALITY;
+    }
 
+    public DefaultItem(String name, int SellIn, int quality, boolean cursed) {
+        super(name, SellIn, quality, cursed);
+        if(this.quality > MAXQUALITY)
+            this.quality = MAXQUALITY;
     }
 
 
-    public Item update(Item item){
-        if(item.sellIn > 0){
-            if( item.quality > 0){
-                item.quality--;
-                if (item.conjured == true)
-                    item.quality--;
-            }
 
-            item.sellIn--;
+    public void update(){
+        if(this.sellIn > 0){
+            this.updateQuality(-1);
+        }else {
+            this.updateQuality(-2);
         }
-        else{
-            if(item.quality > 1 )
-                item.quality -= 2;
-            else if (item.quality > 0)
-                item.quality--;
-        }
-        return item;
     }
 }
