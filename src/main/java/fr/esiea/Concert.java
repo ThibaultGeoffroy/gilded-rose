@@ -5,13 +5,13 @@ public class Concert extends Item {
     final int MAXQUALITY = 50;
 
     public Concert(int SellIn, int quality) {
-        super("Backstage passes", SellIn, quality);
+        super(Constants.CONCERT_NAME, SellIn, quality);
         if(this.quality > MAXQUALITY)
             this.quality = MAXQUALITY;
     }
 
     public Concert(int SellIn, int quality, boolean cursed) {
-        super("Backstage passes", SellIn, quality, cursed);
+        super(Constants.CONCERT_NAME, SellIn, quality, cursed);
         if(this.quality > MAXQUALITY)
             this.quality = MAXQUALITY;
     }

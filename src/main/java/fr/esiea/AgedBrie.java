@@ -4,7 +4,7 @@ public class AgedBrie extends Item{
 
 
     public AgedBrie(int sellIn, int quality) {
-        super("Aged Brie", sellIn, quality);
+        super(Constants.AGEDBRIE_NAME, sellIn, quality);
     }
 
     public void update() {
