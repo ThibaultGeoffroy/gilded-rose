@@ -24,5 +24,6 @@ public class DefaultItem extends Item{
         }else {
             this.updateQuality(-2);
         }
+        this.sellIn --;
     }
 }

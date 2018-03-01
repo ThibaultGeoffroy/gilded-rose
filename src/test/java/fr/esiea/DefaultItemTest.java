@@ -18,32 +18,32 @@ public class DefaultItemTest {
 
     @Test
     public void decreaseNormalBehavior(){
-        Item[] items = new Item[] {new DefaultItem("Apple",10, 10)        };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals(9 , app.items[0].quality);
+        Item item = new DefaultItem("Apple",10, 10);
+        item.update();
+        assertEquals(9 , item.quality);
     }
 
     @Test
     public void decreaseOutDatedBehavior(){
-        Item[] items = new Item[] {new DefaultItem("Apple",0, 10)        };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals(8 , app.items[0].quality);
+        Item item = new DefaultItem("Apple",0, 10);
+        item.update();
+        assertEquals(8 , item.quality);
     }
 
     @Test
     public void doNotDecreaseQualityUnderZero(){
-        Item[] items = new Item[] {
-                new DefaultItem("Apple",1, 0),
-                new DefaultItem("Strawberry",0, 1),
-                new DefaultItem("HazelNut",0, 0)
-        };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals(0 , app.items[0].quality);
-        assertEquals(0 , app.items[1].quality);
-        assertEquals(0, app.items[2].quality);
+        Item item1 = new DefaultItem("Apple",1, 0);
+        Item item2 = new DefaultItem("Strawberry",0, 1);
+        Item item3 = new DefaultItem("HazelNut",0, 0);
+
+
+        item1.update();
+        item2.update();
+        item3.update();
+
+        assertEquals(0 , item1.quality);
+        assertEquals(0 , item2.quality);
+        assertEquals(0, item3.quality);
     }
 
     @Test
