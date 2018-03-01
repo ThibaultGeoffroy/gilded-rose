@@ -9,7 +9,7 @@ public class DefaultItemTest {
     @Test
     public void initalisationAt80(){
         Item[] items = new Item[] {
-                new DefaultItem("Apple",1, 80),
+                new DefaultItem("Apple",1, 80, false),
                 new DefaultItem("Orange",1, 80, true)
         };
         assertEquals(50 , items[0].quality);
@@ -18,23 +18,23 @@ public class DefaultItemTest {
 
     @Test
     public void decreaseNormalBehavior(){
-        Item item = new DefaultItem("Apple",10, 10);
+        Item item = new DefaultItem("Apple",10, 10, false);
         item.update();
         assertEquals(9 , item.quality);
     }
 
     @Test
     public void decreaseOutDatedBehavior(){
-        Item item = new DefaultItem("Apple",0, 10);
+        Item item = new DefaultItem("Apple",0, 10, false);
         item.update();
         assertEquals(8 , item.quality);
     }
 
     @Test
     public void doNotDecreaseQualityUnderZero(){
-        Item item1 = new DefaultItem("Apple",1, 0);
-        Item item2 = new DefaultItem("Strawberry",0, 1);
-        Item item3 = new DefaultItem("HazelNut",0, 0);
+        Item item1 = new DefaultItem("Apple",1, 0, false);
+        Item item2 = new DefaultItem("Strawberry",0, 1, false);
+        Item item3 = new DefaultItem("HazelNut",0, 0, false);
 
 
         item1.update();

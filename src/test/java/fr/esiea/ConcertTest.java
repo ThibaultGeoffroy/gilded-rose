@@ -11,28 +11,28 @@ public class ConcertTest {
 
     @Test
     public void concertSellIn20(){
-        Concert c = new Concert(20, 30);
+        Concert c = new Concert(20, 30, false);
         c.update();
         assertEquals(31 , c.quality);
     }
 
     @Test
     public void concertSellIn7(){
-        Concert c = new Concert(7, 30);
+        Concert c = new Concert(7, 30, false);
         c.update();
         assertEquals(32 , c.quality);
     }
 
     @Test
     public void concertSellIn2(){
-        Concert c = new Concert(2, 30);
+        Concert c = new Concert(2, 30, false);
         c.update();
         assertEquals( 33, c.quality);
     }
 
     @Test
     public void  concertNoValue(){
-       Concert c = new Concert(-1, 30);
+       Concert c = new Concert(-1, 30, false);
         c.update();
         assertEquals(0 , c.quality);
     }

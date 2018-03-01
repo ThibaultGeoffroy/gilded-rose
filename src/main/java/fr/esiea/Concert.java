@@ -4,11 +4,6 @@ public class Concert extends Item {
 
     final int MAXQUALITY = 50;
 
-    public Concert(int SellIn, int quality) {
-        super(Constants.CONCERT_NAME, SellIn, quality);
-        if(this.quality > MAXQUALITY)
-            this.quality = MAXQUALITY;
-    }
 
     public Concert(int SellIn, int quality, boolean cursed) {
         super(Constants.CONCERT_NAME, SellIn, quality, cursed);
