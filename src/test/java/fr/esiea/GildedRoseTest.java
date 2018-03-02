@@ -10,12 +10,12 @@ import java.util.List;
 public class GildedRoseTest {
 
     @Test
-    public void initalisationAt80(){
+    public void updateOnGildedRose(){
 
         GildedRose gr = new GildedRose();
 
-        gr.addItem(new DefaultItem("Apple",5, 30));
-        gr.addItem(new DefaultItem("Strawberry",5, 40));
+        gr.addItem(new DefaultItem("Apple",5, 30, false));
+        gr.addItem(new DefaultItem("Strawberry",5, 40, false));
 
         gr.updateQuality();
 

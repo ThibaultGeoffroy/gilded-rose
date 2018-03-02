@@ -5,7 +5,7 @@ public class DefaultItem extends Item{
     private static final int MAXQUALITY = 50;
 
 
-    public DefaultItem(String name, int SellIn, int quality, boolean cursed) {
+    DefaultItem(String name, int SellIn, int quality, boolean cursed) {
         super(name, SellIn, quality, cursed);
         if(this.quality > MAXQUALITY)
             this.quality = MAXQUALITY;

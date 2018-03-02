@@ -3,8 +3,8 @@ package fr.esiea;
 public class AgedBrie extends Item{
 
 
-    public AgedBrie(int sellIn, int quality) {
-        super(Constants.AGEDBRIE_NAME, sellIn, quality);
+    AgedBrie(int sellIn, int quality, boolean cursed) {
+        super(Constants.AGEDBRIE_NAME, sellIn, quality, cursed);
     }
 
     public void update() {

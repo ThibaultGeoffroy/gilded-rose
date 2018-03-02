@@ -46,7 +46,7 @@ public class ConcertTest {
 
     @Test
     public void ConcertTooMuchQuality(){
-        Concert c = new Concert(20, 70);
+        Concert c = new Concert(20, 70, false);
         Concert c2 = new Concert(20, 70, true);
 
         assertEquals(50, c.quality);

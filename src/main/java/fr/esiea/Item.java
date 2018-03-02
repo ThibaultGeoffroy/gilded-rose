@@ -9,7 +9,7 @@ public abstract class Item {
     public boolean cursed = false;
 
 
-    public Item(String name, int sellIn, int quality, boolean cursed) {
+    protected Item(String name, int sellIn, int quality, boolean cursed) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
@@ -18,7 +18,7 @@ public abstract class Item {
 
     public abstract void update();
 
-    protected void updateQuality(int value){
+    void updateQuality(int value){
         if(this.cursed && value <0){
             this.quality = this.quality + value*2;
         }else{
@@ -29,7 +29,7 @@ public abstract class Item {
         }
     }
 
-    protected void resetQuality(){
+    void resetQuality(){
         this.quality = 0;
     }
 }
