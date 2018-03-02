@@ -9,7 +9,7 @@ public class DefaultItem extends Item{
         } else if(this.quality < 0) {
             throw new QualityException("Quality of a DefaultItem object must be over 0");
         }
-        if(this.sellIn <= 0){
+        if(this.sellIn < 0){
             throw new SellInException("Sellin of a DefaultItem object must be over 0");
         }
     }

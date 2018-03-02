@@ -7,7 +7,7 @@ public class AgedBrie extends Item{
         super(Constants.AGEDBRIE_NAME, sellIn, quality, cursed);
         if(this.quality > 50) {
             throw new QualityException("Quality of a AgedBrie object must be under 50");
-        } else if(this.quality < 0) {
+        } else if(this.quality <= 0) {
             throw new QualityException("Quality of a AgedBrie object must be over 0");
         }
         if(this.sellIn <= 0){

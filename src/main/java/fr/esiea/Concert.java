@@ -6,16 +6,16 @@ public class Concert extends Item {
         super(Constants.CONCERT_NAME, SellIn, quality, cursed);
         if(this.quality > 50) {
             throw new QualityException("Quality of a Concert object must be under 50");
-        } else if(this.quality < 0) {
+        } else if(this.quality <= 0) {
             throw new QualityException("Quality of a Concert object must be over 0");
         }
-        if(this.sellIn <= 0){
-            throw new SellInException("Sellin of a Concert object must be over 0");
+        if(this.sellIn < 0){
+            throw new SellInException("Sellin of a Concert object must be over or equal to 0");
         }
     }
 
     public void update() {
-        if(this.sellIn < 0){
+        if(this.sellIn <= 0){
             this.resetQuality();
         }else if(this.sellIn < 5){
             this.updateQuality(3);

@@ -1,41 +1,39 @@
 package fr.esiea;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.Assert.assertEquals;
 
-
 public class AgedBrieTest {
 
-    @Test
-    public void agedBrieAfterOneDay() throws QualityException, SellInException{
-        Item i = new AgedBrie(10, 0, false);
-        i.update();
-        assertEquals(1, i.quality);
+    @ParameterizedTest
+    @CsvSource({"10, false, 1, 2", "50, false, 50, 50,", "10, true, 1, 2", "50, true, 50, 50,"})
+    public void agedBrieAfterDays(int sellIn, boolean cursed, int nbrOfDay, int expectedQuality) throws QualityException, SellInException{
+        AgedBrie agedBrie = new AgedBrie(sellIn, 1, cursed);
+        for(int i = 0; i < nbrOfDay; i++) {
+            agedBrie.update();
+        }
+        assertEquals(expectedQuality, agedBrie.quality);
+    }
+
+
+    @ParameterizedTest()
+    @ValueSource(ints = {0, 51})
+    public void agedBrieBadQuality(int quality) {
+        Assertions.assertThrows(QualityException.class, () ->{
+            AgedBrie agedBrie = new AgedBrie(10, quality, false);
+        });
     }
 
     @Test
-    public void agedBrieAfter50Days() throws QualityException, SellInException{
-        Item item = new AgedBrie(50, 0, false);
-        for (int i = 0; i < 50; i++)
-            item.update();
-        assertEquals(50, item.quality);
-    }
-
-    @Test
-    public void agedBrieAfter50DaysPassed() throws QualityException, SellInException{
-        Item item = new AgedBrie(50, 0, false);
-        for (int i = 0; i < 50; i++)
-            item.update();
-        assertEquals(50, item.quality);
-    }
-
-    @Test
-    public void AgedBrieDefaultConstructor() throws QualityException, SellInException{
-        Item item = new AgedBrie(50, 0, false);
-        for (int i = 0; i < 50; i++)
-            item.update();
-        assertEquals(50, item.quality);
+    public void agedBrieBadSellIn() {
+        Assertions.assertThrows(SellInException.class, () ->{
+            AgedBrie agedBrie = new AgedBrie(0, 10, false);
+        });
     }
 
 }

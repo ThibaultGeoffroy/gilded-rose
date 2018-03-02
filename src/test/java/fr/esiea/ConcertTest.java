@@ -1,6 +1,10 @@
 package fr.esiea;
 
 import org.junit.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -8,47 +12,32 @@ import static org.junit.Assert.assertTrue;
 
 public class ConcertTest {
 
+    @ParameterizedTest
+    @CsvSource({
+            "20, false, 31",
+            "7, false, 32",
+            "2, false, 33",
+            "0, false, 0",
+            "20, true, 31",
+    })
+    public void concertSellIn(int sellIn, boolean cursed, int expectedValue) throws QualityException, SellInException {
+        Concert concert = new Concert(sellIn, 30, cursed);
+        concert.update();
+        assertEquals(expectedValue, concert.quality);
+    }
 
-    @Test
-    public void concertSellIn20() throws QualityException, SellInException{
-        Concert c = new Concert(20, 30, false);
-        c.update();
-        assertEquals(31, c.quality);
+    @ParameterizedTest()
+    @ValueSource(ints = {0, 51})
+    public void agedBrieBadQuality(int quality) {
+        Assertions.assertThrows(QualityException.class, () ->{
+            Concert concert = new Concert(10, quality, false);
+        });
     }
 
     @Test
-    public void concertSellIn7() throws QualityException, SellInException{
-        Concert c = new Concert(7, 30, false);
-        c.update();
-        assertEquals(32, c.quality);
-    }
-
-    @Test
-    public void concertSellIn2() throws QualityException, SellInException{
-        Concert c = new Concert(2, 30, false);
-        c.update();
-        assertEquals(33, c.quality);
-    }
-
-    @Test
-    public void  concertNoValue() throws QualityException, SellInException{
-       Concert c = new Concert(-1, 30, false);
-       c.update();
-       assertEquals(0, c.quality);
-    }
-
-    @Test
-    public void CursedConcert() throws QualityException, SellInException{
-        Concert c = new Concert(20, 30, true);
-        c.update();
-        assertEquals(31, c.quality);
-    }
-
-    @Test
-    public void ConcertTooMuchQuality() throws QualityException, SellInException{
-        Concert c = new Concert(20, 70, false);
-        Concert c2 = new Concert(20, 70, true);
-        assertEquals(50, c.quality);
-        assertEquals(50, c2.quality);
+    public void agedBrieBadSellIn() {
+        Assertions.assertThrows(SellInException.class, () ->{
+            Concert concert = new Concert(-1, 10, false);
+        });
     }
 }
