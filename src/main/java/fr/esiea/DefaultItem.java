@@ -2,16 +2,17 @@ package fr.esiea;
 
 public class DefaultItem extends Item{
 
-    private static final int MAXQUALITY = 50;
-
-
-    DefaultItem(String name, int SellIn, int quality, boolean cursed) {
+    DefaultItem(String name, int SellIn, int quality, boolean cursed) throws QualityException, SellInException{
         super(name, SellIn, quality, cursed);
-        if(this.quality > MAXQUALITY)
-            this.quality = MAXQUALITY;
+        if(this.quality > 50) {
+            throw new QualityException("Quality of a DefaultItem object must be under 50");
+        } else if(this.quality < 0) {
+            throw new QualityException("Quality of a DefaultItem object must be over 0");
+        }
+        if(this.sellIn <= 0){
+            throw new SellInException("Sellin of a DefaultItem object must be over 0");
+        }
     }
-
-
 
     public void update(){
         if(this.sellIn > 0){

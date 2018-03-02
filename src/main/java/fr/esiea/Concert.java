@@ -2,13 +2,16 @@ package fr.esiea;
 
 public class Concert extends Item {
 
-    final int MAXQUALITY = 50;
-
-
-    Concert(int SellIn, int quality, boolean cursed) {
+    Concert(int SellIn, int quality, boolean cursed) throws QualityException, SellInException{
         super(Constants.CONCERT_NAME, SellIn, quality, cursed);
-        if(this.quality > MAXQUALITY)
-            this.quality = MAXQUALITY;
+        if(this.quality > 50) {
+            throw new QualityException("Quality of a Concert object must be under 50");
+        } else if(this.quality < 0) {
+            throw new QualityException("Quality of a Concert object must be over 0");
+        }
+        if(this.sellIn <= 0){
+            throw new SellInException("Sellin of a Concert object must be over 0");
+        }
     }
 
     public void update() {

@@ -6,20 +6,27 @@ public abstract class Item {
     public int sellIn;
     public int quality;
 
-    public boolean cursed = false;
+    public boolean conjured = false;
 
 
-    protected Item(String name, int sellIn, int quality, boolean cursed) {
+    public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
-        this.cursed = cursed;
+
+    }
+
+    public Item(String name, int sellIn, int quality, boolean conjured) {
+        this.name = name;
+        this.sellIn = sellIn;
+        this.quality = quality;
+        this.conjured = conjured;
     }
 
     public abstract void update();
 
-    void updateQuality(int value){
-        if(this.cursed && value <0){
+    protected void updateQuality(int value){
+        if(this.conjured && value <0){
             this.quality = this.quality + value*2;
         }else{
             this.quality += value;
@@ -29,7 +36,7 @@ public abstract class Item {
         }
     }
 
-    void resetQuality(){
+    protected void resetQuality(){
         this.quality = 0;
     }
 }
