@@ -1,19 +1,33 @@
 package fr.esiea;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import static org.junit.Assert.assertEquals;
 
 public class SulfurasTest {
 
     @Test
-    public void sulfurasAfterOneDay() {
-        Item[] items = new Item[] {new Sulfuras(false), new Sulfuras(true)};
-        items[0].update();
-        assertEquals(80 , items[0].quality);
-        assertEquals(0, items[0].sellIn);
-        items[1].update();
-        assertEquals(80 , items[1].quality);
-        assertEquals(0, items[1].sellIn);
+    public void sulfurasBadQuality() {
+        Assertions.assertThrows(QualityException.class, () ->{
+            Sulfuras sulfuras = new Sulfuras(0, 50, false);
+        });
     }
+    @Test
+    public void sulfurasBadSellIn() {
+        Assertions.assertThrows(SellInException.class, () ->{
+            Sulfuras sulfuras = new Sulfuras(10, 80, false);
+        });
+    }
+
+    @Test
+    public void sulfurasAfterOneDay() throws QualityException, SellInException {
+        Sulfuras sulfuras = new Sulfuras(0, 80, true);
+        sulfuras.update();
+        assertEquals(0, sulfuras.sellIn);
+        assertEquals(80, sulfuras.quality);
+        assertEquals( true, sulfuras.conjured);
+    }
+
+
 }

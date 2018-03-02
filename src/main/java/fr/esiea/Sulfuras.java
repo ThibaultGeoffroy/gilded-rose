@@ -3,7 +3,7 @@ package fr.esiea;
 public class Sulfuras extends Item {
 
     public Sulfuras(int sellIn, int quality, boolean cursed) throws QualityException, SellInException {
-        super(Constants.SULFURAS_NAME, 0, 80, cursed);
+        super(Constants.SULFURAS_NAME, sellIn, quality, cursed);
         if(this.quality != 80) {
             throw new QualityException("Quality of a Sulfura object must be equal to 80");
         }
