@@ -2,6 +2,8 @@ package fr.esiea;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.runners.Parameterized;
+
 
 import static org.junit.Assert.assertEquals;
 

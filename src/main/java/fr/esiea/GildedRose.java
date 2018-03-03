@@ -1,15 +1,24 @@
 package fr.esiea;
 
-public class GildedRose {
-    Item[] items;
+import java.util.ArrayList;
 
-    public GildedRose(Item[] items) {
-        this.items = items;
+public class GildedRose {
+    protected ArrayList<Item> items = new ArrayList<>();
+
+    public GildedRose() {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            items[i].update();
-        }
+        for (Item item : items) item.update();
     }
+
+    public void addItem(Item i) {
+        this.items.add(i);
+    }
+
+    public ArrayList<Item> getItems() {
+        return this.items;
+    }
+
 }
+
