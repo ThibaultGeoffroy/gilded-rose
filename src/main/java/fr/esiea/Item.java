@@ -31,4 +31,12 @@ public abstract class Item {
     protected void resetQuality(){
         this.quality = 0;
     }
+
+
+    public String toString() {
+        return "name:" + this.name + ", sellIn:" + this.sellIn + ", quality:" + this.quality + ", conjured:" + this.conjured;
+
+    }
+
 }
+
