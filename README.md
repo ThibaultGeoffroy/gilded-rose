@@ -1,7 +1,7 @@
 # gilded-rose
 
 [![Build Status](https://travis-ci.org/ThibaultGeoffroy/gilded-rose.svg?branch=master)](https://travis-ci.org/ThibaultGeoffroy/gilded-rose/)
-[![Coverage Status](https://coveralls.io/repos/github/ThibaultGeoffroy/gilded-rose/badge.svg?branch=master)](https://coveralls.io/github/ThibaultGeoffroy/gilded-rose?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/ThibaultGeoffroy/gilded-rose/badge.svg?branch=master&service=github)](https://coveralls.io/github/ThibaultGeoffroy/gilded-rose?branch=master&service=github)
 
 ## Contributors
 
