@@ -3,8 +3,8 @@ package fr.esiea;
 public class AgedBrie extends Item{
 
 
-    AgedBrie(int sellIn, int quality, boolean cursed) throws QualityException, SellInException{
-        super(Constants.AGEDBRIE_NAME, sellIn, quality, cursed);
+    AgedBrie(int sellIn, int quality, boolean conjured) throws QualityException, SellInException{
+        super(Constants.AGEDBRIE_NAME, sellIn, quality, conjured);
         if(this.quality > 50) {
             throw new QualityException("Quality of a AgedBrie object must be under 50");
         } else if(this.quality <= 0) {

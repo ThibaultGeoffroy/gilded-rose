@@ -3,7 +3,7 @@ package fr.esiea;
 import java.util.ArrayList;
 
 public class GildedRose {
-    protected ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     public GildedRose() {
     }

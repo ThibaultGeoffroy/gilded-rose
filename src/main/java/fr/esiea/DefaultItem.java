@@ -2,8 +2,8 @@ package fr.esiea;
 
 public class DefaultItem extends Item{
 
-    DefaultItem(String name, int SellIn, int quality, boolean cursed) throws QualityException, SellInException{
-        super(name, SellIn, quality, cursed);
+    DefaultItem(String name, int SellIn, int quality, boolean conjured) throws QualityException, SellInException{
+        super(name, SellIn, quality, conjured);
         if(this.quality > 50) {
             throw new QualityException("Quality of a DefaultItem object must be under 50");
         } else if(this.quality < 0) {

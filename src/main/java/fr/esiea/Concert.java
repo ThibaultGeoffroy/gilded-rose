@@ -2,8 +2,8 @@ package fr.esiea;
 
 public class Concert extends Item {
 
-    Concert(int SellIn, int quality, boolean cursed) throws QualityException, SellInException{
-        super(Constants.CONCERT_NAME, SellIn, quality, cursed);
+    Concert(int SellIn, int quality, boolean conjured) throws QualityException, SellInException{
+        super(Constants.CONCERT_NAME, SellIn, quality, conjured);
         if(this.quality > 50) {
             throw new QualityException("Quality of a Concert object must be under 50");
         } else if(this.quality <= 0) {

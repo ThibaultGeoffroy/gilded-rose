@@ -19,8 +19,8 @@ public class DefaultItemTest {
             "0, 0, false, 0",
             "1, 30, true, 28"
     })
-    public void defaultItemBehavior(int sellIn, int quality, boolean cursed, int expectedValue) throws QualityException, SellInException {
-        DefaultItem defaultItem = new DefaultItem("Test", sellIn, quality, cursed);
+    public void defaultItemBehavior(int sellIn, int quality, boolean conjured, int expectedValue) throws QualityException, SellInException {
+        DefaultItem defaultItem = new DefaultItem("Test", sellIn, quality, conjured);
         defaultItem.update();
         System.out.println(defaultItem);
         assertEquals(expectedValue, defaultItem.quality);

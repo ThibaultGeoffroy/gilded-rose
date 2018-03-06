@@ -22,8 +22,8 @@ public class ConcertTest {
             "0, false, 0",
             "20, true, 31",
     })
-    public void concertSellIn(int sellIn, boolean cursed, int expectedValue) throws QualityException, SellInException {
-        Concert concert = new Concert(sellIn, 30, cursed);
+    public void concertSellIn(int sellIn, boolean conjured, int expectedValue) throws QualityException, SellInException {
+        Concert concert = new Concert(sellIn, 30, conjured);
         concert.update();
         assertEquals(expectedValue, concert.quality);
     }
