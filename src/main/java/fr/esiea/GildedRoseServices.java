@@ -31,6 +31,15 @@ public class GildedRoseServices {
 
         return "User_created";
     }
+
+    @RequestMapping("/list_item")
+    String ListItem() throws SellInException, QualityException {
+        gildedRose.addItem(ItemFactory.createItem("Test", 10, 10, true));
+        return "Les items pouvant etre vendus sont:" + gildedRose.getItems().toString();
+    }
+
+
+
 }
 
 
