@@ -35,7 +35,6 @@ public abstract class Item {
 
     public String toString() {
         return "name:" + this.name + ", sellIn:" + this.sellIn + ", quality:" + this.quality + ", conjured:" + this.conjured;
-
     }
 
 }

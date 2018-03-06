@@ -2,6 +2,8 @@ package fr.esiea;
 
 public class ItemFactory {
 
+    private ItemFactory(){}
+
     public static Item createItem(String name, int sellin, int quality, boolean cursed) throws SellInException, QualityException {
         switch (name){
             case Constants.CONCERT_NAME:

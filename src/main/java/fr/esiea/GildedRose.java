@@ -20,5 +20,15 @@ public class GildedRose {
         return this.items;
     }
 
+    public Item buyItem(String name) throws NoItemException{
+        Item i = items.stream().filter(item -> item.name.equals(name)).findAny().orElse(null);
+        if(i != null){
+            items.remove(i);
+        }else{
+            throw new NoItemException("This item is not available available in Gilded Rose.");
+        }
+        return i;
+
+    }
 }
 
